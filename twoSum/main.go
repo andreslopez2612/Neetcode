@@ -14,20 +14,15 @@ func twoSum(nums []int, target int) []int {
 
 	result := []int{}
 
-	if len(nums) == 0 {
-		return result
-	}
-
 	check := make(map[int]int)
-	for i := range nums {
-		diference := target - nums[i]
-		if _, ok := check[diference]; ok {
-			result = append(result, check[diference], i)
+	for i, v := range nums {
+		diference := target - v
+		if prev, ok := check[diference]; ok {
+			result = append(result, prev, i)
 			return result
 		}
-
-		check[nums[i]] = i
+		check[v] = i
 	}
 
-	return result
+	return nil
 }
