@@ -32,7 +32,7 @@ func topKFrequent(nums []int, k int) []int {
 	sort.Slice(resultMap, func(i, j int) bool {
 		return resultMap[i].value > resultMap[j].value
 	})
-	result := []int{}
+	result := make([]int, 0, k)
 
 	for i := range k {
 		result = append(result, resultMap[i].key)
